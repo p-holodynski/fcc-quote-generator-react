@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { random } from 'lodash';
-import './App.css';
+import 'typeface-roboto';
+import {Grid} from '@material-ui/core';
 import QuoteGenerator from './components/QuoteGenerator';
 
 class App extends Component {
@@ -45,9 +46,11 @@ class App extends Component {
   render() {
     console.log(this.state.selectedIndex);
     return (
-      <div className="App" id="quote-box">
-        <QuoteGenerator selectedQuote={this.selectedQuote} assignNewQuoteIndex={this.assignNewQuoteIndex}/>
-      </div>
+      <Grid id="quote-box" justify="center" container>
+        <Grid item>
+          <QuoteGenerator selectedQuote={this.selectedQuote} assignNewQuoteIndex={this.assignNewQuoteIndex}/>
+        </Grid>
+      </Grid>
     );
   }
 }
