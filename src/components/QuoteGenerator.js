@@ -11,13 +11,14 @@ import {faTwitter} from '@fortawesome/free-brands-svg-icons';
 const QuoteGenerator = (props) => (
     <Card>
         <CardContent>
-            <Typography>
-                {props.selectedQuote.quote} - {props.selectedQuote.author}
+            <Typography id="text">
+                {props.selectedQuote.quote} - <span id="author">{props.selectedQuote.author}</span>
             </Typography>
         </CardContent>
         <CardActions>
-            <Button size="small" onClick={props.assignNewQuoteIndex}>Next Quote</Button>
+            <Button id="new-quote" size="small" onClick={props.assignNewQuoteIndex}>Next Quote</Button>
             <IconButton
+                id="tweet-quote"
                 target="_blank"
                 href={encodeURI(`https://twitter.com/intent/tweet?text=${props.selectedQuote.quote}`)}
             >
