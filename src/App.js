@@ -18,8 +18,8 @@ class App extends Component {
     this.state = {
       quotes: [],
       selectedIndex: null,
-      colorIndex: null,
       colors: ['#acc7dc', '#d6dde3', '#8ac5c3', '#edece8', '#ff9681', '#eeebdc', '#e2d4d4', '#bfb1d5', '#fed1be', '#f0e0a2', '#ddf1e8'],
+      color: 'white',
     }
     this.generateNewQuoteIndex = this.generateNewQuoteIndex.bind(this);
     this.assignNewQuoteIndex = this.assignNewQuoteIndex.bind(this);
@@ -50,19 +50,23 @@ class App extends Component {
   }
 
   assignNewQuoteIndex(){
-    this.setState({ selectedIndex: this.generateNewQuoteIndex()});
+    this.setState({ selectedIndex: this.generateNewQuoteIndex(),
+                    color: this.state.colors[random(0, this.state.colors.length - 1)]});
   }
 
   render() {
     console.log(this.state.selectedIndex);
+    console.log(this.state.color);
     return (
-      <Grid className={this.props.classes.container} id="quote-box" justify="center" container>
-        <Grid xs={12} lg={8} item>
-        {this.selectedQuote ? 
-        <QuoteGenerator selectedQuote={this.selectedQuote} assignNewQuoteIndex={this.assignNewQuoteIndex}/>
-        : null}
+      <div style={{background: this.state.color}}>
+        <Grid className={this.props.classes.container} id="quote-box" justify="center" container>
+          <Grid xs={12} lg={8} item>
+          {this.selectedQuote ? 
+          <QuoteGenerator selectedQuote={this.selectedQuote} assignNewQuoteIndex={this.assignNewQuoteIndex}/>
+          : null}
+          </Grid>
         </Grid>
-      </Grid>
+      </div>
     );
   }
 }
