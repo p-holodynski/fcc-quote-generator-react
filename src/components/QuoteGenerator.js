@@ -22,7 +22,7 @@ const QuoteGenerator = (props) => (
                 target="_blank"
                 href={encodeURI(`https://twitter.com/intent/tweet?text=${props.selectedQuote.quote}`)}
             >
-                <FontAwesomeIcon icon={faTwitter} size="md"></FontAwesomeIcon>
+                <FontAwesomeIcon icon={faTwitter} size="1x"></FontAwesomeIcon>
             </IconButton>
         </CardActions>
     </Card>
