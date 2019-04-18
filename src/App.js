@@ -5,7 +5,6 @@ import Grid from '@material-ui/core/Grid';
 import QuoteGenerator from './components/QuoteGenerator';
 import { withStyles } from '@material-ui/core/styles';
 
-
 const styles = {
   container: {
     alignItems: 'center',
@@ -18,7 +17,9 @@ class App extends Component {
     super(props);
     this.state = {
       quotes: [],
-      selectedIndex: null
+      selectedIndex: null,
+      colorIndex: null,
+      colors: ['#acc7dc', '#d6dde3', '#8ac5c3', '#edece8', '#ff9681', '#eeebdc', '#e2d4d4', '#bfb1d5', '#fed1be', '#f0e0a2', '#ddf1e8'],
     }
     this.generateNewQuoteIndex = this.generateNewQuoteIndex.bind(this);
     this.assignNewQuoteIndex = this.assignNewQuoteIndex.bind(this);
@@ -56,7 +57,7 @@ class App extends Component {
     console.log(this.state.selectedIndex);
     return (
       <Grid className={this.props.classes.container} id="quote-box" justify="center" container>
-        <Grid xs={11} lg={8} item>
+        <Grid xs={12} lg={8} item>
         {this.selectedQuote ? 
         <QuoteGenerator selectedQuote={this.selectedQuote} assignNewQuoteIndex={this.assignNewQuoteIndex}/>
         : null}
